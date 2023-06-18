@@ -25,6 +25,7 @@
 		3393828B2A3F668B009BD03E /* MyMovieCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3393828A2A3F668B009BD03E /* MyMovieCoreDataManager.swift */; };
 		3393828E2A3F66FA009BD03E /* Movie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3393828C2A3F66FA009BD03E /* Movie+CoreDataClass.swift */; };
 		3393828F2A3F66FA009BD03E /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3393828D2A3F66FA009BD03E /* Movie+CoreDataProperties.swift */; };
+		339382922A3F6A2D009BD03E /* MyMovieCoreDataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339382912A3F6A2D009BD03E /* MyMovieCoreDataVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		3393828A2A3F668B009BD03E /* MyMovieCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovieCoreDataManager.swift; sourceTree = "<group>"; };
 		3393828C2A3F66FA009BD03E /* Movie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3393828D2A3F66FA009BD03E /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		339382912A3F6A2D009BD03E /* MyMovieCoreDataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovieCoreDataVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				339382822A3F2E9A009BD03E /* MyMovieCellViewModel.swift */,
 				339382872A3F657E009BD03E /* MyMovieCollectionViewVM.swift */,
+				339382912A3F6A2D009BD03E /* MyMovieCoreDataVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				33707F932A3EEAFD00109EE1 /* SceneDelegate.swift in Sources */,
 				33707FB42A3EFC4100109EE1 /* MyMoviesCollectionViewCell.swift in Sources */,
 				3393828E2A3F66FA009BD03E /* Movie+CoreDataClass.swift in Sources */,
+				339382922A3F6A2D009BD03E /* MyMovieCoreDataVM.swift in Sources */,
 				339382832A3F2E9A009BD03E /* MyMovieCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

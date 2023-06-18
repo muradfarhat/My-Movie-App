@@ -10,6 +10,8 @@ import UIKit
 class MyMovieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var myMoviesCollectionView: UICollectionView!
+    private let myMovieCDViewModel: MyMovieCoreDataVM = MyMovieCoreDataVM()
+    private let myMovieCollectionVM: MyMovieCollectionViewVM = MyMovieCollectionViewVM()
     private var movieModels: [MyMovieDataModel] = []
     
     override func viewDidLoad() {
@@ -20,6 +22,8 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.myMoviesCollectionView.dataSource = self
         
         self.myMoviesCollectionView.register(UINib(nibName: "MyMoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "movieCell")
+        
+        
 
     }
     
