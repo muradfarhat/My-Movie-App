@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="gTV-IL-0wX" customClass="MyMoviesCollectionViewCell" customModule="My_Movie" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="gTV-IL-0wX" customClass="MyMoviesCollectionViewCell" customModule="My_Movie">
             <rect key="frame" x="0.0" y="0.0" width="220" height="360"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -61,6 +61,12 @@
                 <constraint firstItem="X5q-vC-OU1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="nT4-Qi-fHV"/>
             </constraints>
             <size key="customSize" width="211" height="362"/>
+            <connections>
+                <outlet property="movieImage" destination="X5q-vC-OU1" id="1l9-9C-lh4"/>
+                <outlet property="movieRateValue" destination="i8V-1p-7dg" id="PcO-4G-NRJ"/>
+                <outlet property="movieTimeValue" destination="U3F-Z3-c2y" id="daK-es-cI8"/>
+                <outlet property="movieTitle" destination="5Z3-tp-IrX" id="lCj-nr-VrD"/>
+            </connections>
             <point key="canvasLocation" x="174.04580152671755" y="61.971830985915496"/>
         </collectionViewCell>
     </objects>

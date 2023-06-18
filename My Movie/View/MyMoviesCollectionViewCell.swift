@@ -9,9 +9,21 @@ import UIKit
 
 class MyMoviesCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var movieTimeValue: UILabel!
+    @IBOutlet weak var movieRateValue: UILabel!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setMovieData(movie: MyMovieCellViewModel) {
+        self.movieTitle.text = movie.movieName
+        self.movieTimeValue.text = String(movie.movieTime)
+        self.movieRateValue.text = String(movie.movieRate)
+        self.movieImage.image = movie.moviePoster
     }
 
 }
