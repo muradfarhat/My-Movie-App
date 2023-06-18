@@ -27,5 +27,4 @@ struct MyMovieDataModel: Codable {
         movieYear = Int(try container.decode(String.self, forKey: .movieYear))!
         moviePoster = try container.decode(String.self, forKey: .moviePoster)
     }
-
 }
