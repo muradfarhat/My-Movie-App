@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="220" height="360"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X5q-vC-OU1">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RealMadrid" translatesAutoresizingMaskIntoConstraints="NO" id="X5q-vC-OU1">
                         <rect key="frame" x="35" y="10" width="150" height="245"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="CX7-z4-h0G"/>
@@ -76,6 +76,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="RealMadrid" width="150" height="245"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
