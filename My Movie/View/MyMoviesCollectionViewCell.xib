@@ -67,7 +67,7 @@
             </constraints>
             <size key="customSize" width="211" height="362"/>
             <connections>
-                <outlet property="movieImage" destination="X5q-vC-OU1" id="1l9-9C-lh4"/>
+                <outlet property="movieImage" destination="X5q-vC-OU1" id="C5H-FM-zLG"/>
                 <outlet property="movieRateValue" destination="i8V-1p-7dg" id="PcO-4G-NRJ"/>
                 <outlet property="movieTimeValue" destination="U3F-Z3-c2y" id="daK-es-cI8"/>
                 <outlet property="movieTitle" destination="5Z3-tp-IrX" id="lCj-nr-VrD"/>

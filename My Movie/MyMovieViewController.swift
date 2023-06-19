@@ -22,15 +22,13 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.myMoviesCollectionView.delegate = self
         self.myMoviesCollectionView.dataSource = self
         
-        self.myMoviesCollectionView.register(UINib(nibName: "MyMoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "movieCell")
+        self.myMoviesCollectionView.register(MyMoviesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire)
         
-        
-
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return self.movieModels.count
-        return 3
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
