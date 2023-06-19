@@ -12,10 +12,10 @@ class MyMovieCoreDataVM {
     
     private let context = MyMovieCoreDataManager.shared.persistentContainer.viewContext
     
-    func getAllMovies() -> [Movies] {
-        var models: [Movies] = []
+    func getAllMovies() -> [Movie] {
+        var models: [Movie] = []
         do {
-            models = try context.fetch(Movies.fetchRequest())
+            models = try context.fetch(Movie.fetchRequest())
             return models
         } catch {
             print(error.localizedDescription)

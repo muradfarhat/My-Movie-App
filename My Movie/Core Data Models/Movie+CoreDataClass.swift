@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 @objc(Movie)
-public class Movies: NSManagedObject {
+public class Movie: NSManagedObject {
 
 }

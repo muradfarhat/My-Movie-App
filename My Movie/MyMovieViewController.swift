@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MyMovieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -28,14 +29,15 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.movieModels.count
+//        return self.movieModels.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myMoviesCollectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as? MyMoviesCollectionViewCell
         
         let movieCellVM = MyMovieCellViewModel(moviePoster: UIImage(named: "RealMadrid")!, movieName: "Avatar", movieRate: 2019, movieTime: 128)
-        
+
         cell?.setMovieData(movie: movieCellVM)
         return cell ?? UICollectionViewCell()
     }

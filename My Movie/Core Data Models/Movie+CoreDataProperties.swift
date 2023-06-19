@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 
-extension Movies {
+extension Movie {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Movies> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Movie> {
         return NSFetchRequest<Movie>(entityName: "Movies")
     }
 
@@ -23,6 +23,6 @@ extension Movies {
 
 }
 
-extension Movies : Identifiable {
+extension Movie : Identifiable {
 
 }
