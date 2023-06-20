@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import SDWebImage
 
 class MyMovieCellViewModel {
     
-    private(set) var moviePoster: UIImageView = UIImageView()
+    private(set) var moviePoster: String
     private(set) var movieName: String
     private(set) var movieRate: Int
     private(set) var movieTime: String
@@ -19,6 +18,6 @@ class MyMovieCellViewModel {
         self.movieName = model.movieTitle
         self.movieRate = model.movieYear
         self.movieTime = model.movieTime
-        self.moviePoster.sd_setImage(with: URL(string: model.moviePoster))
+        self.moviePoster = model.moviePoster
     }
 }

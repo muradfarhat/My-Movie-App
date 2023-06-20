@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MyMoviesCollectionViewCell: UICollectionViewCell {
 
@@ -25,7 +26,16 @@ class MyMoviesCollectionViewCell: UICollectionViewCell {
         self.movieTitle.text = movie.movieName
         self.movieTimeValue.text = String(movie.movieTime)
         self.movieRateValue.text = String(movie.movieRate)
-        self.movieImage = movie.moviePoster
+        
+        if let posterURL = URL(string: movie.moviePoster) {
+            self.movieImage.sd_setImage(with: posterURL, placeholderImage: nil) { [weak self] (image, error, cacheType, url) in
+                if error != nil {
+                    self?.movieImage.image = UIImage(named: "RealMadrid")
+                }
+            }
+        } else {
+            self.movieImage.image = UIImage(named: "RealMadrid")
+        }
     }
     
     static func nib() -> UINib {

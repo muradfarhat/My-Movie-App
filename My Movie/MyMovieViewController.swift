@@ -16,7 +16,6 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.myMoviesCollectionView.delegate = self
         self.myMoviesCollectionView.dataSource = self
@@ -41,8 +40,6 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myMoviesCollectionView.dequeueReusableCell(withReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire, for: indexPath) as? MyMoviesCollectionViewCell
-        
-        //let movieCellVM = MyMovieCellViewModel(model: self.movieModels[indexPath.row])
 
         cell?.setMovieData(movie: self.movieModels[indexPath.row])
         return cell ?? UICollectionViewCell()
