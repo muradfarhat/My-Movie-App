@@ -14,7 +14,7 @@ class MyMoviesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
     
-    static let cellIdentifire = "movieCell"
+    static let cellIdentifire = "MyMoviesCollectionViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class MyMoviesCollectionViewCell: UICollectionViewCell {
         self.movieTitle.text = movie.movieName
         self.movieTimeValue.text = String(movie.movieTime)
         self.movieRateValue.text = String(movie.movieRate)
-        self.movieImage.image = movie.moviePoster
+        self.movieImage = movie.moviePoster
     }
     
     static func nib() -> UINib {

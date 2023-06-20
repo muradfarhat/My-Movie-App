@@ -38,7 +38,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="myMoviesCollectionView" destination="hRE-68-Jrq" id="h5N-B9-YDA"/>
+                        <outlet property="myMoviesCollectionView" destination="hRE-68-Jrq" id="Mq6-J4-WDs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

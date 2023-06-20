@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import SDWebImage
 
-class MyMovieViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     @IBOutlet weak var myMoviesCollectionView: UICollectionView!
     private let myMovieCDViewModel: MyMovieCoreDataVM = MyMovieCoreDataVM()
     private let myMovieCollectionVM: MyMovieCollectionViewVM = MyMovieCollectionViewVM()
-    private var movieModels: [MyMovieDataModel] = []
+    private var movieModels: [MyMovieCellViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +23,28 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         self.myMoviesCollectionView.register(MyMoviesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire)
         
+        self.myMovieCollectionVM.fetchMoviesData { data in
+            DispatchQueue.main.async {
+                self.movieModels = data
+                self.myMoviesCollectionView.reloadData()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 360)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.movieModels.count
-        return 1
+        return self.movieModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = myMoviesCollectionView.dequeueReusableCell(withReuseIdentifier: "movieCell", for: indexPath) as? MyMoviesCollectionViewCell
+        let cell = myMoviesCollectionView.dequeueReusableCell(withReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire, for: indexPath) as? MyMoviesCollectionViewCell
         
-        let movieCellVM = MyMovieCellViewModel(moviePoster: UIImage(named: "RealMadrid")!, movieName: "Avatar", movieRate: 2019, movieTime: 128)
+        //let movieCellVM = MyMovieCellViewModel(model: self.movieModels[indexPath.row])
 
-        cell?.setMovieData(movie: movieCellVM)
+        cell?.setMovieData(movie: self.movieModels[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
 

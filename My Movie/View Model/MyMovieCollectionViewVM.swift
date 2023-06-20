@@ -10,20 +10,22 @@ import Alamofire
 
 class MyMovieCollectionViewVM {
     
-    private var movieModels: [MyMovieDataModel] = []
+    private var movieModels: [MyMovieCellViewModel] = []
     
-    func fetchMoviesData(completionHandler: @escaping ([MyMovieDataModel]) -> Void) {
-        let moviesApi = "https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies"
+    func fetchMoviesData(completionHandler: @escaping ([MyMovieCellViewModel]) -> Void) {
+        let moviesApi = "https://mocki.io/v1/8243f76f-332a-47a6-924f-7f501bede45c"
         
         AF.request(moviesApi).responseDecodable(of: [MyMovieDataModel].self) { [weak self] response in
                     
             switch response.result {
                 case .success(let responseData):
-                        self?.movieModels = responseData
-                        completionHandler(self?.movieModels ?? [])
+                self?.movieModels = responseData.map {
+                    MyMovieCellViewModel(model: $0)
+                }
+                completionHandler(self?.movieModels ?? [])
                 case .failure(let error):
-                        print("Error :\(error)")
-                        completionHandler(self?.movieModels ?? [])
+                    print("Error :\(error)")
+                    completionHandler(self?.movieModels ?? [])
             }
         }
     }
