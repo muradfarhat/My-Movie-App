@@ -20,4 +20,11 @@ class MyMovieCellViewModel {
         self.movieTime = model.movieTime
         self.moviePoster = model.moviePoster
     }
+    
+    init(model: MyMovieEntity) {
+        self.movieName = model.title!
+        self.movieRate = Int(model.year)
+        self.movieTime = model.time!
+        self.moviePoster = model.poster!
+    }
 }

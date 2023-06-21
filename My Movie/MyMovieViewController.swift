@@ -22,11 +22,15 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         self.myMoviesCollectionView.register(MyMoviesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire)
         
-        self.myMovieCollectionVM.fetchMoviesData { data in
-            DispatchQueue.main.async {
-                self.movieModels = data
-                self.myMoviesCollectionView.reloadData()
+        if self.myMovieCDViewModel.isMoviesCoreDataEmpty() {
+            self.myMovieCollectionVM.fetchMoviesData { data in
+                DispatchQueue.main.async {
+                    self.movieModels = data
+                    self.myMoviesCollectionView.reloadData()
+                }
             }
+        } else {
+            self.movieModels = self.myMovieCDViewModel.getAllMovies()
         }
     }
     
