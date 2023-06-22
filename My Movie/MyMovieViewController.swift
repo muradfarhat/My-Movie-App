@@ -10,7 +10,6 @@ import UIKit
 class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     @IBOutlet weak var myMoviesCollectionView: UICollectionView!
-    private let myMovieCDViewModel: MyMovieCoreDataVM = MyMovieCoreDataVM()
     private let myMovieCollectionVM: MyMovieCollectionViewVM = MyMovieCollectionViewVM()
     private var movieModels: [MyMovieCellViewModel] = []
     
@@ -22,15 +21,11 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         self.myMoviesCollectionView.register(MyMoviesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire)
         
-        if self.myMovieCDViewModel.isMoviesCoreDataEmpty() {
-            self.myMovieCollectionVM.fetchMoviesData { data in
-                DispatchQueue.main.async {
-                    self.movieModels = data
-                    self.myMoviesCollectionView.reloadData()
-                }
+        self.myMovieCollectionVM.fetchMoviesData { data in
+            DispatchQueue.main.async {
+                self.movieModels = data
+                self.myMoviesCollectionView.reloadData()
             }
-        } else {
-            self.movieModels = self.myMovieCDViewModel.getAllMovies()
         }
     }
     
