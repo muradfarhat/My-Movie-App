@@ -18,9 +18,9 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X5q-vC-OU1">
-                        <rect key="frame" x="35" y="10" width="150" height="245"/>
+                        <rect key="frame" x="25" y="10" width="170" height="245"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="150" id="CX7-z4-h0G"/>
+                            <constraint firstAttribute="width" constant="170" id="CX7-z4-h0G"/>
                             <constraint firstAttribute="height" constant="245" id="Use-ey-9x1"/>
                         </constraints>
                     </imageView>
