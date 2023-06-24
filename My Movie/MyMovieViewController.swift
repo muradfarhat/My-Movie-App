@@ -29,6 +29,17 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedItem = self.movieModels[indexPath.row]
+        
+        let movieDescriptionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDescriptionViewController") as? MovieDescriptionViewController
+        
+        movieDescriptionVC?.selectedMovie = selectedItem
+        
+        navigationController?.pushViewController(movieDescriptionVC ?? MovieDescriptionViewController(), animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: 360)
     }
