@@ -13,7 +13,7 @@ class MyMovieCollectionViewVM {
     private var movieViewModels: [MyMovieCellViewModel] = []
     
     func fetchMoviesData(completionHandler: @escaping ([MyMovieCellViewModel]) -> Void) {
-        let moviesApi = "https://mocki.io/v1/8243f76f-332a-47a6-924f-7f501bede45c"
+        let moviesApi = "https://mocki.io/v1/4ad6460b-cb5f-44a3-b6c3-e4a95c4cab8b"
         
         AF.request(moviesApi).responseDecodable(of: [MyMovieDataModel].self) { [weak self] response in
                     
@@ -22,7 +22,6 @@ class MyMovieCollectionViewVM {
                 self?.movieViewModels = responseData.map {
                     MyMovieCellViewModel(model: $0)
                 }
-                
                 completionHandler(self?.movieViewModels ?? [])
                 case .failure(let error):
                     print("Error :\(error)")

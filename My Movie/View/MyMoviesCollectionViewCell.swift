@@ -19,7 +19,6 @@ class MyMoviesCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func setMovieData(movie: MyMovieCellViewModel) {
@@ -39,7 +38,7 @@ class MyMoviesCollectionViewCell: UICollectionViewCell {
     }
     
     static func nib() -> UINib {
-        return UINib(nibName: "MyMoviesCollectionViewCell", bundle: nil)
+        return UINib(nibName: cellIdentifire, bundle: nil)
     }
 
 }
