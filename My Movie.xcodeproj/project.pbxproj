@@ -84,10 +84,10 @@
 		33707F8F2A3EEAFD00109EE1 /* My Movie */ = {
 			isa = PBXGroup;
 			children = (
-				33CB07882A50B0E90089078A /* Cells Protocol */,
-				33CB077D2A502F730089078A /* TableViewCell View */,
 				339382842A3F30FD009BD03E /* Models */,
 				339382812A3F2E80009BD03E /* View Model */,
+				33CB07882A50B0E90089078A /* Cells Protocol */,
+				33CB077D2A502F730089078A /* TableViewCell View */,
 				33707FAF2A3EFBEB00109EE1 /* CollectionViewCell View */,
 				33707F902A3EEAFD00109EE1 /* AppDelegate.swift */,
 				33707F922A3EEAFD00109EE1 /* SceneDelegate.swift */,
