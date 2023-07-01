@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SDWebImage
 
-class MoviePosterTableViewCell: UITableViewCell {
+class MoviePosterTableViewCell: UITableViewCell, MovieTableViewProtocol {
     
     static var identifier = "MoviePosterTableViewCell"
     
@@ -15,9 +16,21 @@ class MoviePosterTableViewCell: UITableViewCell {
         return UINib(nibName: "MoviePosterTableViewCell", bundle: nil)
     }
 
+    @IBOutlet weak var posterImageView: UIImageView!
+    typealias dataType = MyMovieCellViewModel
+    
+    func setCellData(movie: MyMovieCellViewModel) {
+        if let posterURL = URL(string: movie.moviePoster) {
+            self.posterImageView.sd_setImage(with: posterURL, placeholderImage: nil) { [weak self] (image, error, cacheType, url) in
+                self?.posterImageView.image = UIImage(named: "RealMadrid")
+            }
+        } else {
+            self.posterImageView.image = UIImage(named: "RealMadrid")
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
 }

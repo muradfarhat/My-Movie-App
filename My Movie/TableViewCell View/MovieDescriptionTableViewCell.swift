@@ -7,17 +7,22 @@
 
 import UIKit
 
-class MovieDescriptionTableViewCell: UITableViewCell {
+class MovieDescriptionTableViewCell: UITableViewCell, MovieTableViewProtocol {
     
     static var identifier = "MovieDescriptionTableViewCell"
     
-    static func posterCellNib() -> UINib {
+    static func descriptionCellNib() -> UINib {
         return UINib(nibName: "MovieDescriptionTableViewCell", bundle: nil)
     }
+    
+    typealias dataType = MyMovieCellViewModel
 
+    func setCellData(movie: MyMovieCellViewModel) {
+        <#code#>
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
 }

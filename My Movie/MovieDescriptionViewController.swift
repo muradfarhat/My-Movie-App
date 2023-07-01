@@ -7,41 +7,41 @@
 
 import UIKit
 
-class MovieDescriptionViewController: UIViewController, UIScrollViewDelegate {
+class MovieDescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var movieYear: UILabel!
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieDescription: UILabel!
-    @IBOutlet weak var moviePoster: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var movieDescTableView: UITableView!
     
     var selectedMovie: MyMovieCellViewModel?
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.delegate = self
-        scrollView.contentInsetAdjustmentBehavior = .never
+        self.movieDescTableView.delegate = self
+        self.movieDescTableView.dataSource = self
         
-        scrollView.contentSize = view.bounds.size
+        self.movieDescTableView.register(MoviePosterTableViewCell.posterCellNib(), forCellReuseIdentifier: MoviePosterTableViewCell.identifier)
+        self.movieDescTableView.register(MovieDescriptionTableViewCell.descriptionCellNib(), forCellReuseIdentifier: MovieDescriptionTableViewCell.identifier)
         
-        if let posterURL = URL(string: selectedMovie!.moviePoster) {
-            self.moviePoster.sd_setImage(with: posterURL, placeholderImage: nil) { [weak self] (image, error, cacheType, url) in
-                if error != nil {
-                    self?.moviePoster.image = UIImage(named: "RealMadrid")
-                }
-            }
-        } else {
-            self.moviePoster.image = UIImage(named: "RealMadrid")
-        }
-
-        movieDescription.text = self.selectedMovie?.movieDescrtiption
-        movieTitle.text = self.selectedMovie?.movieName
-        movieYear.text = String(self.selectedMovie!.movieRate)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 == 0 {
+            let cell = movieDescTableView.dequeueReusableCell(withIdentifier: MoviePosterTableViewCell.identifier, for: indexPath) as? MoviePosterTableViewCell
+            cell?.setCellData(movie: self.selectedMovie!)
+            return cell ?? UITableViewCell()
+        } else {
+            let cell = movieDescTableView.dequeueReusableCell(withIdentifier: MovieDescriptionTableViewCell.identifier, for: indexPath) as? MovieDescriptionTableViewCell
+            cell?.setCellData(movie: self.selectedMovie!)
+            return cell ?? UITableViewCell()
+        }
     }
 }
