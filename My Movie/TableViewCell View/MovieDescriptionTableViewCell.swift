@@ -15,10 +15,11 @@ class MovieDescriptionTableViewCell: UITableViewCell, MovieTableViewProtocol {
         return UINib(nibName: "MovieDescriptionTableViewCell", bundle: nil)
     }
     
+    @IBOutlet weak var movieDescription: UILabel!
     typealias dataType = MyMovieCellViewModel
 
     func setCellData(movie: MyMovieCellViewModel) {
-        <#code#>
+        self.movieDescription.text = movie.movieDescrtiption
     }
     
     override func awakeFromNib() {

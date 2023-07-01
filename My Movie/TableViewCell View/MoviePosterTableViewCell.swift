@@ -22,7 +22,9 @@ class MoviePosterTableViewCell: UITableViewCell, MovieTableViewProtocol {
     func setCellData(movie: MyMovieCellViewModel) {
         if let posterURL = URL(string: movie.moviePoster) {
             self.posterImageView.sd_setImage(with: posterURL, placeholderImage: nil) { [weak self] (image, error, cacheType, url) in
-                self?.posterImageView.image = UIImage(named: "RealMadrid")
+                if error != nil {
+                    self?.posterImageView.image = UIImage(named: "RealMadrid")
+                }
             }
         } else {
             self.posterImageView.image = UIImage(named: "RealMadrid")
