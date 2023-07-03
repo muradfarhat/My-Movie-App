@@ -10,9 +10,10 @@ import UIKit
 class MovieDescriptionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var movieDescTableView: UITableView!
+    @IBOutlet weak private var movieDescTableView: UITableView!
+    private var movieDescTableViewVM: MovieTableViewVM = MovieTableViewVM()
     
-    var selectedMovie: MyMovieCellViewModel?
+    var selectedMovie: MyMovieDataModel?
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -27,6 +28,8 @@ class MovieDescriptionViewController: UIViewController, UITableViewDelegate, UIT
         self.movieDescTableView.register(MoviePosterTableViewCell.posterCellNib(), forCellReuseIdentifier: MoviePosterTableViewCell.identifier)
         self.movieDescTableView.register(MovieDescriptionTableViewCell.descriptionCellNib(), forCellReuseIdentifier: MovieDescriptionTableViewCell.identifier)
         
+        self.movieDescTableViewVM.fetchCellsData(movie: selectedMovie!)
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,13 +37,13 @@ class MovieDescriptionViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
+        if let posterCellVM = self.movieDescTableViewVM.movieCellsVM[indexPath.row] as? MoviePosterCellViewModel {
             let cell = movieDescTableView.dequeueReusableCell(withIdentifier: MoviePosterTableViewCell.identifier, for: indexPath) as? MoviePosterTableViewCell
-            cell?.setCellData(movie: self.selectedMovie!)
+            cell?.setCellData(movie: posterCellVM)
             return cell ?? UITableViewCell()
         } else {
             let cell = movieDescTableView.dequeueReusableCell(withIdentifier: MovieDescriptionTableViewCell.identifier, for: indexPath) as? MovieDescriptionTableViewCell
-            cell?.setCellData(movie: self.selectedMovie!)
+            cell?.setCellData(movie: self.movieDescTableViewVM.movieCellsVM[indexPath.row] as! MovieDescriptionViewModel)
             return cell ?? UITableViewCell()
         }
     }

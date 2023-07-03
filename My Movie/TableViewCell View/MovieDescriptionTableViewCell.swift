@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieDescriptionTableViewCell: UITableViewCell, MovieTableViewProtocol {
+class MovieDescriptionTableViewCell: UITableViewCell{
     
     static var identifier = "MovieDescriptionTableViewCell"
     
@@ -18,8 +18,8 @@ class MovieDescriptionTableViewCell: UITableViewCell, MovieTableViewProtocol {
     @IBOutlet weak var movieDescription: UILabel!
     typealias dataType = MyMovieCellViewModel
 
-    func setCellData(movie: MyMovieCellViewModel) {
-        self.movieDescription.text = movie.movieDescrtiption
+    func setCellData(movie: MovieDescriptionViewModel) {
+        self.movieDescription.text = movie.movieDescription
     }
     
     override func awakeFromNib() {

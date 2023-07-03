@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class MoviePosterTableViewCell: UITableViewCell, MovieTableViewProtocol {
+class MoviePosterTableViewCell: UITableViewCell {
     
     static var identifier = "MoviePosterTableViewCell"
     
@@ -19,8 +19,8 @@ class MoviePosterTableViewCell: UITableViewCell, MovieTableViewProtocol {
     @IBOutlet weak var posterImageView: UIImageView!
     typealias dataType = MyMovieCellViewModel
     
-    func setCellData(movie: MyMovieCellViewModel) {
-        if let posterURL = URL(string: movie.moviePoster) {
+    func setCellData(movie: MoviePosterCellViewModel) {
+        if let posterURL = URL(string: movie.moviePoster!) {
             self.posterImageView.sd_setImage(with: posterURL, placeholderImage: nil) { [weak self] (image, error, cacheType, url) in
                 if error != nil {
                     self?.posterImageView.image = UIImage(named: "RealMadrid")

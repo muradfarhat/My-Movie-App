@@ -11,7 +11,6 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
 
     @IBOutlet weak var myMoviesCollectionView: UICollectionView!
     private let myMovieCollectionVM: MyMovieCollectionViewVM = MyMovieCollectionViewVM()
-    private var movieModels: [MyMovieCellViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +20,8 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
         
         self.myMoviesCollectionView.register(MyMoviesCollectionViewCell.nib(), forCellWithReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire)
         
-        self.myMovieCollectionVM.fetchMoviesData { data in
+        self.myMovieCollectionVM.fetchMoviesData {
             DispatchQueue.main.async {
-                self.movieModels = data
                 self.myMoviesCollectionView.reloadData()
             }
         }
@@ -31,7 +29,7 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let selectedItem = self.movieModels[indexPath.row]
+        let selectedItem = self.myMovieCollectionVM.movieModels[indexPath.row]
         
         let movieDescriptionVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDescriptionViewController") as? MovieDescriptionViewController
         
@@ -45,13 +43,13 @@ class MyMovieViewController: UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.movieModels.count
+        return self.myMovieCollectionVM.movieViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = myMoviesCollectionView.dequeueReusableCell(withReuseIdentifier: MyMoviesCollectionViewCell.cellIdentifire, for: indexPath) as? MyMoviesCollectionViewCell
 
-        cell?.setMovieData(movie: self.movieModels[indexPath.row])
+        cell?.setMovieData(movie: self.myMovieCollectionVM.movieViewModels[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
 
